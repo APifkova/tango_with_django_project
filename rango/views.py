@@ -21,17 +21,17 @@ def index(request):
     visitor_cookie_handler(request)
 
     response = render(request, 'rango/index.html', context=context_dict)
-    # return response
+    return response
 
     # return render(request, 'rango/index.html', context=context_dict)
-    return HttpResponse("Rango says hey there partner!" + "<a href='/rango/about'>About</a>")
+    # return HttpResponse("Rango says hey there partner!" + "<a href='/rango/about'>About</a>")
 
 
 def about(request):
     visitor_cookie_handler(request)
     context_dict = {'visits': request.session['visits']}
-    # return render(request, 'rango/about.html', context=context_dict)
-    return HttpResponse("Rango says here is the about page." + "<a href=\'/rango/\'>Index</a>")
+    return render(request, 'rango/about.html', context=context_dict)
+    # return HttpResponse("Rango says here is the about page." + "<a href=\'/rango/\'>Index</a>")
 
 
 def show_category(request, category_name_slug):
